@@ -51,5 +51,6 @@ function register_functionality( $features ) {
 
 register_functionality(array(
     'wordpress-tweaks',
+    'bbpress-tweaks',
     'wp-bootstrap-navwalker'
 ));
