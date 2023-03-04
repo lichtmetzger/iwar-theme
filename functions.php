@@ -50,5 +50,6 @@ function register_functionality( $features ) {
 }
 
 register_functionality(array(
-    'wordpress-tweaks'
+    'wordpress-tweaks',
+    'wp-bootstrap-navwalker'
 ));
