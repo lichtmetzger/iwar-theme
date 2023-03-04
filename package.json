@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build-css": "sass -w scss/main.scss css/main.css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  },
+  "devDependencies": {
+    "sass": "^1.58.3"
+  }
+}
