@@ -29,3 +29,16 @@ function register_iwar_menus() {
   );
 }
 add_action( 'init', 'register_iwar_menus' );
+
+function register_functionality( $features ) {
+    foreach( $features as $feature ) {
+      $feature_path = get_stylesheet_directory() . '/includes/' . $feature . '.php';
+      if(file_exists($feature_path)) {
+        require_once($feature_path);
+      }
+    }
+}
+
+register_functionality(array(
+    'wordpress-tweaks'
+));
