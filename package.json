@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-css": "sass -w scss/main.scss css/main.css"
+    "build-css": "sass -w scss/main.scss assets/css/main.css"
   },
   "devDependencies": {
     "sass": "^1.58.3"
