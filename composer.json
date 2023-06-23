@@ -1,0 +1,25 @@
+{
+    "name": "iwar/iwar-theme",
+    "description": "I-War 2 Theme (Beta)",
+    "require-dev": {
+        "wp-cli/wp-cli-bundle": "*",
+        "squizlabs/php_codesniffer": "*",
+        "wp-coding-standards/wpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Danny Schmarsel",
+            "email": "ds@lichtmetzger.de"
+        }
+    ],
+    "require": {
+        "pablo-sg-pacheco/wp-namespace-autoloader": "dev-master"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

@@ -1,5 +1,5 @@
-css/main.css
-css/main.css.map
-node_modules
-vendor
-build
+/vendor/
+/node_modules/
+/assets/css/
+composer.lock
+package-lock.json
