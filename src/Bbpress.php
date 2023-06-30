@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Registers bbPress overrides.
  */
-class Tweaks_Bbpress {
+class Bbpress {
 
 	/**
 	 * Register all filters for overriding default bbPress behaviour.

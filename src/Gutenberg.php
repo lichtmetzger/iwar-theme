@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Registers Gutenberg tweaks.
  */
-class Tweaks_Gutenberg {
+class Gutenberg {
 	/**
 	 * Initialization function.
 	 *

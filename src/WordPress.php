@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Registers WordPress tweaks.
  */
-class Tweaks_WordPress {
+class WordPress {
 	/**
 	 * Initialization function.
 	 *

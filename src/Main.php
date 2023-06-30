@@ -9,7 +9,9 @@
 namespace IwarTheme;
 
 use IwarTheme\Translations;
-use IwarTheme\Tweaks_WordPress;
+use IwarTheme\WordPress;
+use IwarTheme\Gutenberg;
+use IwarTheme\Bbpress;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '' );
@@ -64,15 +66,15 @@ class Main {
 	 */
 	public function load_custom_tweaks() {
 		// WordPress tweaks.
-		$tweaks_wp = new Tweaks_WordPress();
+		$tweaks_wp = new WordPress();
 		$tweaks_wp->initialize();
 
 		// Gutenberg tweaks.
-		$tweaks_gb = new Tweaks_Gutenberg();
+		$tweaks_gb = new Gutenberg();
 		$tweaks_gb->initialize();
 
 		// bbPress tweaks.
-		$tweaks_bb = new Tweaks_Bbpress();
+		$tweaks_bb = new Bbpress();
 		$tweaks_bb->initialize();
 	}
 }
