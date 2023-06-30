@@ -63,7 +63,7 @@ class Bbpress {
 
 		// Encode possible UTF8 display names.
 		if ( seems_utf8( $user_name ) === false ) {
-			$user_name = utf8_encode( $user_name );
+			$user_name = mb_convert_encoding( $user_name, 'UTF-8', mb_list_encodings() );
 		}
 
 		return $user_name;
@@ -102,7 +102,7 @@ class Bbpress {
 
 		// Encode possible UTF8 display names.
 		if ( seems_utf8( $user_name ) === false ) {
-			$user_name = utf8_encode( $user_name );
+			$user_name = mb_convert_encoding( $user_name, 'UTF-8', mb_list_encodings() );
 		}
 
 		return $user_name;
