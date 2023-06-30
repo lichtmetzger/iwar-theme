@@ -72,6 +72,7 @@ class Main {
 		$tweaks_gb->initialize();
 
 		// bbPress tweaks.
-		// TODO.
+		$tweaks_bb = new Tweaks_Bbpress();
+		$tweaks_bb->initialize();
 	}
 }
