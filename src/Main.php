@@ -12,6 +12,7 @@ use IwarTheme\Translations;
 use IwarTheme\WordPress;
 use IwarTheme\Gutenberg;
 use IwarTheme\Bbpress;
+use IwarTheme\Import;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '' );
@@ -76,5 +77,9 @@ class Main {
 		// bbPress tweaks.
 		$tweaks_bb = new Bbpress();
 		$tweaks_bb->initialize();
+
+		// Import functionality.
+		$import = new Import();
+		$import->initialize();
 	}
 }
