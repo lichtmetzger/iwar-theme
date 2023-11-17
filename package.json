@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build-css": "sass -w scss/main.scss assets/css/main.css"
+    "build-css": "sass scss/main.scss assets/css/main.css",
+    "start-css": "sass -w scss/main.scss assets/css/main.css"
   },
   "stylelint": {
     "extends": [
