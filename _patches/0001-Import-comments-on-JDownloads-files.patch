@@ -1,0 +1,26 @@
+From 7c3f3f90ba6858be5bee5e2910d29fb768d87107 Mon Sep 17 00:00:00 2001
+From: Danny Schmarsel <dsc@qbus.de>
+Date: Fri, 17 Nov 2023 11:38:44 +0100
+Subject: [PATCH] Import comments on JDownloads files
+
+---
+ fgj2wp-jcomments.php | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/fgj2wp-jcomments.php b/fgj2wp-jcomments.php
+index e1b5b96..a0f1428 100644
+--- a/fgj2wp-jcomments.php
++++ b/fgj2wp-jcomments.php
+@@ -270,6 +270,9 @@ if ( !class_exists('fgj2wp_jcomments', false) ) {
+ 				case 'com_easyblog':
+ 					$meta_key = '_fgj2wp_old_easyblog_id';
+ 					break;
++				case 'com_jdownloads':
++					$meta_key = '_fgj2wp_old_jdownloads_file_id';
++					break;
+ 				case 'com_content':
+ 				default:
+ 					$meta_key = '_fgj2wp_old_id';
+-- 
+2.41.0
+
