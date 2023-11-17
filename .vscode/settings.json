@@ -8,6 +8,11 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    // Enable ESLint
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
     // PHP/WORDPRESS
     "[php]": {
         "editor.formatOnSave": false,
