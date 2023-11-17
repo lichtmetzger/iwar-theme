@@ -77,7 +77,7 @@ class Import {
 	public function disable_file_upload_security() {
 
 		$this->replace_core_file_strings(
-			'wp-admin/includes/file.php',
+			get_home_path() . 'wp-admin/includes/file.php',
 			'$test_uploaded_file = \'wp_handle_upload\' === $action ? is_uploaded_file( $file[\'tmp_name\'] ) : @is_readable( $file[\'tmp_name\'] );',
 			'$test_uploaded_file = true;'
 		);
@@ -96,7 +96,7 @@ class Import {
 	public function enable_file_upload_security() {
 
 		$this->replace_core_file_strings(
-			'wp-admin/includes/file.php',
+			get_home_path() . 'wp-admin/includes/file.php',
 			'$test_uploaded_file = true;',
 			'$test_uploaded_file = \'wp_handle_upload\' === $action ? is_uploaded_file( $file[\'tmp_name\'] ) : @is_readable( $file[\'tmp_name\'] );'
 		);
