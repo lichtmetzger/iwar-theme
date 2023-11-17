@@ -39,6 +39,9 @@ class ContactMethods {
 		// Add a new text field for the personal text.
 		$methods['personal_text'] = 'Personal Text';
 
+		// Add a new text field for the location.
+		$methods['location'] = 'Location';
+
 		return $methods;
 	}
 
@@ -59,7 +62,12 @@ class ContactMethods {
 
 		if ( isset( $_POST['personal_text'] ) ) {
 			update_user_meta( $user_id, 'personal_text', sanitize_text_field( wp_unslash( $_POST['personal_text'] ) ) );
-			return true;
 		}
+
+		if ( isset( $_POST['location'] ) ) {
+			update_user_meta( $user_id, 'location', sanitize_text_field( wp_unslash( $_POST['location'] ) ) );
+		}
+
+		return true;
 	}
 }
