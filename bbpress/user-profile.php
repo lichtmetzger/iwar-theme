@@ -20,9 +20,9 @@ do_action( 'bbp_template_before_user_profile' ); ?>
 		<h3><?php esc_html_e( 'Profile', 'bbpress' ); ?></h3>
 		<p class="bbp-user-forum-role"><?php printf( esc_html__( 'Registered: %s', 'bbpress' ), bbp_get_time_since( bbp_get_displayed_user_field( 'user_registered' ) ) ); ?></p>
 
-		<?php if ( bbp_get_displayed_user_field( 'description' ) ) : ?>
+		<?php if ( bbp_get_displayed_user_field( 'personal_text' ) ) : ?>
 
-			<p class="bbp-user-description"><?php echo bbp_rel_nofollow( bbp_get_displayed_user_field( 'description' ) ); ?></p>
+			<p class="bbp-user-description"><?php echo bbp_rel_nofollow( bbp_get_displayed_user_field( 'personal_text' ) ); ?></p>
 
 		<?php endif; ?>
 
