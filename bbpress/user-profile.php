@@ -26,6 +26,12 @@ do_action( 'bbp_template_before_user_profile' ); ?>
 
 		<?php endif; ?>
 
+		<?php if ( bbp_get_displayed_user_field( 'personal_text' ) ) : ?>
+
+			<p class="bbp-user-location"><?php echo 'Location: ' . bbp_rel_nofollow( bbp_get_displayed_user_field( 'location' ) ); ?></p>
+
+		<?php endif; ?>
+
 		<?php if ( bbp_get_displayed_user_field( 'user_url' ) ) : ?>
 
 			<p class="bbp-user-website"><?php printf( esc_html__( 'Website: %s', 'bbpress' ), bbp_rel_nofollow( bbp_make_clickable( bbp_get_displayed_user_field( 'user_url' ) ) ) ); ?></p>
