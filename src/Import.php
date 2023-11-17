@@ -146,7 +146,7 @@ class Import {
 			$j_user_id = get_user_meta( $wp_user_id, '_fgj2wp_old_user_id', true );
 
 			// Grab the avatar URL and personal text from Joomla's database.
-			$query = 'SELECT avatar,personalText FROM ' . $table_prefix . 'kunena_users WHERE userid=' . $j_user_id;
+			$query = 'SELECT avatar,personalText,location FROM ' . $table_prefix . 'kunena_users WHERE userid=' . $j_user_id;
 			$stmt  = $pdo->query( $query );
 
             // phpcs:ignore
@@ -157,6 +157,14 @@ class Import {
 
 					// Save personal text into user information.
 					update_user_meta( $wp_user_id, 'personal_text', $personal_text );
+				}
+
+				// Import location.
+				if ( $row['location'] ) {
+					$personal_text = $row['location'];
+
+					// Save personal text into user information.
+					update_user_meta( $wp_user_id, 'location', $personal_text );
 				}
 
 				// Import avatar.
