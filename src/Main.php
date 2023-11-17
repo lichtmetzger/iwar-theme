@@ -13,6 +13,7 @@ use IwarTheme\WordPress;
 use IwarTheme\Gutenberg;
 use IwarTheme\Bbpress;
 use IwarTheme\Import;
+use IwarTheme\User\User;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '' );
@@ -47,6 +48,13 @@ class Main {
 
 		// Load various tweaks.
 		add_action( 'init', array( $this, 'load_custom_tweaks' ), 20 );
+
+		// Import functionality.
+		$import = new Import();
+		$import->initialize();
+
+		// User functions.
+		$user = new User();
 	}
 
 
@@ -77,9 +85,5 @@ class Main {
 		// bbPress tweaks.
 		$tweaks_bb = new Bbpress();
 		$tweaks_bb->initialize();
-
-		// Import functionality.
-		$import = new Import();
-		$import->initialize();
 	}
 }
