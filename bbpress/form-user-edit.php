@@ -92,11 +92,6 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'bbp_user_edit_before_about' ); ?>
 
-		<div>
-			<label for="description"><?php esc_html_e( 'Biographical Info', 'bbpress' ); ?></label>
-			<textarea name="description" id="description" rows="5" cols="30"><?php bbp_displayed_user_field( 'description', 'edit' ); ?></textarea>
-		</div>
-
 		<?php do_action( 'bbp_user_edit_after_about' ); ?>
 
 	</fieldset>
