@@ -26,7 +26,7 @@ do_action( 'bbp_template_before_user_profile' ); ?>
 
 		<?php endif; ?>
 
-		<?php if ( bbp_get_displayed_user_field( 'personal_text' ) ) : ?>
+		<?php if ( bbp_get_displayed_user_field( 'location' ) ) : ?>
 
 			<p class="bbp-user-location"><?php echo 'Location: ' . bbp_rel_nofollow( bbp_get_displayed_user_field( 'location' ) ); ?></p>
 
