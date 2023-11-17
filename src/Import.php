@@ -25,7 +25,7 @@ class Import {
 	 */
 	public function initialize() {
 		// Run after importing all users.
-		add_action( 'fgj2wp_post_import_users', array( $this, 'import_kunena_avatars' ) );
+		add_action( 'fgj2wp_post_import_users', array( $this, 'import_special_user_data' ) );
 	}
 
 	/**
@@ -77,7 +77,7 @@ class Import {
 	public function disable_file_upload_security() {
 
 		$this->replace_core_file_strings(
-			get_home_path() . 'wp-admin/includes/file.php',
+			'wp-admin/includes/file.php',
 			'$test_uploaded_file = \'wp_handle_upload\' === $action ? is_uploaded_file( $file[\'tmp_name\'] ) : @is_readable( $file[\'tmp_name\'] );',
 			'$test_uploaded_file = true;'
 		);
@@ -96,7 +96,7 @@ class Import {
 	public function enable_file_upload_security() {
 
 		$this->replace_core_file_strings(
-			get_home_path() . 'wp-admin/includes/file.php',
+			'wp-admin/includes/file.php',
 			'$test_uploaded_file = true;',
 			'$test_uploaded_file = \'wp_handle_upload\' === $action ? is_uploaded_file( $file[\'tmp_name\'] ) : @is_readable( $file[\'tmp_name\'] );'
 		);
@@ -104,15 +104,17 @@ class Import {
 	}
 
 	/**
-	 * Read out avatar URLs from the kunena_users table in Joomla,
+	 * Read out avatar URLs and the personal text from the kunena_users table in Joomla,
 	 * download these avatar images into the media library and set
 	 * the meta value of "basic_user_avatar" to the URL of the imported avatar.
+	 *
+	 * Also set the meta value of "personal_text" to the personal text.
 	 *
 	 * Avatars can then be used with the plugin "Basic User Avatars".
 	 *
 	 * @return void
 	 */
-	public function import_kunena_avatars() {
+	public function import_special_user_data() {
 
 		$users   = get_users();
 		$options = get_option( 'fgj2wp_options' );
@@ -143,12 +145,21 @@ class Import {
 			// Get the old Joomla user ID.
 			$j_user_id = get_user_meta( $wp_user_id, '_fgj2wp_old_user_id', true );
 
-			// Grab the avatar URL from Joomla's database.
-			$query = 'SELECT avatar FROM ' . $table_prefix . 'kunena_users WHERE userid=' . $j_user_id;
+			// Grab the avatar URL and personal text from Joomla's database.
+			$query = 'SELECT avatar,personalText FROM ' . $table_prefix . 'kunena_users WHERE userid=' . $j_user_id;
 			$stmt  = $pdo->query( $query );
 
             // phpcs:ignore
 			while ( $row = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
+				// Import personal text.
+				if ( $row['personalText'] ) {
+					$personal_text = $row['personalText'];
+
+					// Save personal text into user information.
+					update_user_meta( $wp_user_id, 'personal_text', $personal_text );
+				}
+
+				// Import avatar.
 				if ( $row['avatar'] ) {
 					$avatar_url = 'https://i-war2.com/media/kunena/avatars/' . $row['avatar'];
 
